@@ -1,16 +1,17 @@
 import React from 'react';
 import './App.css';
 import AppHeader from './components/app-header';
-
+import Counter from './components/counter';
 function TodoApp() {
   return (
-    <React.Fragment>
-      <div className ="App">
-         <AppHeader className="header" subTitle= "awesomeapp">
-           My Todo App
-          </AppHeader>
-      </div>
-    </React.Fragment>
+    <div className ="App">
+        <AppHeader className="header" 
+          subTitle= "awesomeapp">
+          My Todo App
+        </AppHeader>
+
+        <Counter />
+    </div>
   );
 }
 
