@@ -6,7 +6,9 @@ function TodoApp() {
   return (
     <React.Fragment>
       <div className ="App">
-         <AppHeader>My Todo App</AppHeader>
+         <AppHeader subTitle= "awesomeapp">
+           My Todo App
+          </AppHeader>
       </div>
     </React.Fragment>
   );
