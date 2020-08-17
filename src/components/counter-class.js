@@ -1,40 +1,69 @@
-import React, {useState} from 'react';
+import React, {Component} from 'react';
 
-export default function CounterClass() {
-  console.log("called....");
-  // => [stateValue, updaterFunction]
+// let instance = new CounterClass()
+// instance.render();
 
-  const [counter, setState] = useState(0); 
-  const [error, setError] = useState("");
+export default class CounterClass extends Component {
+  // state = {
+  //   counter: 0,
+  //   error: ""
+  // }
 
-  const incr = () => {
-    if (error.trim() != "") {
-      setError("");
+  // alternative
+  constructor() {
+    super();
+    this.state = {
+      counter: 0,
+      error: ""
     }
-    setState(counter + 1);
+
+    this.incrAgain = this.incrAgain.bind(this);
   }
 
-  const decr = () => {
-    if (counter == 0) {
-      setError("Counter should not be negative!");
+
+  incr = () => {
+    if (this.state.error.trim() != "") {
+      this.setState({
+        error: ""
+      })
+    }
+    this.setState({
+     counter: this.state.counter + 1
+    });
+  }
+
+  decr = () => {
+    if (this.state.counter == 0) {
+      this.setState({
+        error: "Counter should not be negative!"
+      })
       return;
     }
-    setState(counter - 1);
+    this.setState({
+      counter: this.state.counter - 1
+    });
   }
-  
-  return (
-    <div>
-      <h2>Counter Class</h2>
-      {
-        error.length > 0 && <div className="error">{error}</div>
-      }
-      <h2>{counter}</h2>
-      <button onClick={incr}>+</button>
-      <button onClick={decr}>-</button>
 
-      <button onClick={function () { return setState(counter + 1) }}>++</button>
-      
-    </div>
-  )
+  incrAgain () { 
+    this.setState({counter: this.state.counter + 1}) 
+  }
+
+  
+  render() {
+    return (
+      <div>
+        <h2>Counter Class</h2>
+        {
+          this.state.error.length > 0 && <div className="error">{this.state.error}</div>
+        }
+        <h2>{this.state.counter}</h2>
+        <button onClick={this.incr}>+</button>
+        <button onClick={this.decr}>-</button>
+  
+        <button onClick={this.incrAgain}>++</button>
+        
+      </div>
+    )
+  }
 }
 
