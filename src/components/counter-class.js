@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export default function Counter() {
+export default function CounterClass() {
   console.log("called....");
   // => [stateValue, updaterFunction]
 
@@ -24,7 +24,7 @@ export default function Counter() {
   
   return (
     <div>
-      <h2>Counter</h2>
+      <h2>Counter Class</h2>
       {
         error.length > 0 && <div className="error">{error}</div>
       }

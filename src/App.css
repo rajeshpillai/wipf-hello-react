@@ -41,3 +41,17 @@
 .header {
   background: skyblue;
 }
+
+.error {
+  width:250px;
+  background-color: red;
+  color: white;
+}
+
+.top-menu {
+  display: flex;
+}
+
+.top-menu a {
+  padding: 10px;
+}
