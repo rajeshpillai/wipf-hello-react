@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react';
+import React, {useReducer, useState} from 'react';
 import counterReducer from '../reducers/counter-reducer';
 
 const defaultState = {
@@ -10,6 +10,7 @@ const defaultState = {
 
 export default function UseReducerDemo() {
   const [state, dispatch] = useReducer(counterReducer, defaultState); // Needs a reducer and a default state
+  const [step, setStep] = useState(1);
 
   const incr = () => {
     if (state.error.trim() != "") {
@@ -26,9 +27,10 @@ export default function UseReducerDemo() {
       //  setIsUpdating((_) => true);
     
       dispatch({
-        type:"COUNTER_INCREMENT"
+        type:"COUNTER_INCREMENT",
+        payload: step
       });
-    }, 3000);
+    }, 1000);
   }
 
   const decr = () => {
@@ -39,8 +41,13 @@ export default function UseReducerDemo() {
     }
     // setCounter(counter - 1);
     dispatch({
-      type:"COUNTER_DECREMENT"
+      type:"COUNTER_DECREMENT",
+      payload: step
     });
+  }
+
+  const handleChange = (e) => {
+    setStep(Number(e.target.value));
   }
   
   return (
@@ -49,6 +56,9 @@ export default function UseReducerDemo() {
       {
         state.error.length > 0 && <div className="error">{state.error}</div>
       }
+
+      Increment By:
+      <input type="number" value={step} onChange={handleChange}/>
       
       <h2>{state.counter}</h2>
 

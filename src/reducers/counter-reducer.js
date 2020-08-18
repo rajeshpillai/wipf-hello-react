@@ -19,7 +19,7 @@ export default function counterReducer(state, action) {
       console.log("Incrementing Counter....");
       return {
         ...state,
-        counter: state.counter + 1,
+        counter: state.counter + action.payload,
         isLoading: false,
         isUpdated: true
       }
@@ -27,7 +27,7 @@ export default function counterReducer(state, action) {
       console.log("Decrementing Counter....");
       return {
         ...state,
-        counter: state.counter - 1,
+        counter: state.counter - action.payload,
         isLoading: false,
         isUpdated: true
       }

@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  NavLink
 } from "react-router-dom";
 
 import './App.css';
@@ -21,12 +22,12 @@ function TodoApp() {
       <div className ="App">
         <AppHeader className="header"
           subTitle= "awesomeapp">
-          My Todo App
+          React Tutorial
         </AppHeader>
         <nav className="top-menu">
           <Link to="/">Home</Link>
-          <Link to="/counter">Counter</Link>
-          <Link to="/counterfn">Counter useState fn</Link>
+          <NavLink to="/counter">Counter</NavLink>
+          <NavLink to="/counterfn">Counter useState fn</NavLink>
           <Link to="/counterclass">Counter Class</Link>
           <Link to="/countermultiplestate">Counter Multiple State</Link>
           <Link to="/usestatedemo">useState Demo</Link>
