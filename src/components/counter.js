@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 
 export default function Counter() {
   console.log("called....");
-  // => [stateValue, updaterFunction]
 
   const [counter, setState] = useState(0); 
   const [error, setError] = useState("");

@@ -1,25 +1,14 @@
 import React, {Component} from 'react';
 
-// let instance = new CounterClass()
-// instance.render();
-
 export default class CounterClass extends Component {
-  // state = {
-  //   counter: 0,
-  //   error: ""
-  // }
-
-  // alternative
   constructor() {
     super();
     this.state = {
       counter: 0,
       error: ""
     }
-
     this.incrAgain = this.incrAgain.bind(this);
   }
-
 
   incr = () => {
     if (this.state.error.trim() != "") {

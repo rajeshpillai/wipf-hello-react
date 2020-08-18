@@ -10,6 +10,7 @@ import './App.css';
 import AppHeader from './components/app-header';
 import Counter from './components/counter';
 import CounterClass from './components/counter-class';
+import UseStateDemo from './components/usestate-demo';
 
 function TodoApp() {
   return (
@@ -23,7 +24,7 @@ function TodoApp() {
           <Link to="/">Home</Link>
           <Link to="/counter">Counter</Link>
           <Link to="/counterclass">Counter Class</Link>
-          <Link to="/todos">Todo App</Link>
+          <Link to="/usestatedemo">useState Demo</Link>
         </nav>
         <Switch>
           <Route path="/counter">
@@ -31,6 +32,9 @@ function TodoApp() {
           </Route>
           <Route path="/counterclass">
             <CounterClass />
+          </Route>
+          <Route path="/usestatedemo">
+            <UseStateDemo />
           </Route>
         </Switch>
       </div>
