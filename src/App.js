@@ -12,6 +12,7 @@ import Counter from './components/counter';
 import CounterClass from './components/counter-class';
 import UseStateDemo from './components/usestate-demo';
 import CounterFn from './components/counter-fn';
+import CounterMultipleState from './components/counter-multiple-state';
 
 function TodoApp() {
   return (
@@ -26,6 +27,7 @@ function TodoApp() {
           <Link to="/counter">Counter</Link>
           <Link to="/counterfn">Counter useState fn</Link>
           <Link to="/counterclass">Counter Class</Link>
+          <Link to="/countermultiplestate">Counter Multiple State</Link>
           <Link to="/usestatedemo">useState Demo</Link>
         </nav>
         <Switch>
@@ -38,6 +40,10 @@ function TodoApp() {
           <Route path="/counterclass">
             <CounterClass />
           </Route>
+          <Route path="/countermultiplestate">
+            <CounterMultipleState />
+          </Route>
+          
           <Route path="/usestatedemo">
             <UseStateDemo />
           </Route>

@@ -10,10 +10,12 @@ export default function CounterFn() {
     if (error.trim() != "") {
       setError("");
     }
-    // setCounter(counter + 1);
-    // setCounter(counter + 1);
-    // setCounter(counter + 1);
     
+    // setCounter(counter + 1);
+    // setCounter(counter + 1);
+    // setCounter(counter + 10);
+    
+    // Always use the function state updater
     setCounter((prevState) => prevState + 1 );
     setCounter((prevState) => prevState + 1 );
     setCounter((prevState) => {
