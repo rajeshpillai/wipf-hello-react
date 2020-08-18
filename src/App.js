@@ -16,6 +16,7 @@ import CounterFn from './components/counter-fn';
 import CounterMultipleState from './components/counter-multiple-state';
 import UseReducerDemo from './components/usereducer-demo';
 import Home from './components/home';
+import UseRefDemo from './components/useref-demo';
 
 function TodoApp() {
   return (
@@ -33,6 +34,7 @@ function TodoApp() {
           <NavLink to="/countermultiplestate">Counter Multiple State</NavLink>
           <NavLink to="/usestatedemo">useState Demo</NavLink>
           <NavLink to="/usereducerdemo">useReducer Demo</NavLink>
+          <NavLink to="/userefdemo">useRef Demo</NavLink>
         </nav>
         <Switch>
           
@@ -54,6 +56,10 @@ function TodoApp() {
           <Route path="/usereducerdemo">
             <UseReducerDemo />
           </Route>
+          <Route path="/userefdemo">
+            <UseRefDemo />
+          </Route>
+          userefdemo
           <Route path="/" exact>
             <Home />
           </Route>
