@@ -1,43 +1,5 @@
-import React, {useState, useReducer} from 'react';
-
-function counterReducer(state, action) {
-  console.log(state, action);
-  // REQUIRED:  action->type (mandatory)
-  switch(action.type) {
-    case "LOADING": 
-      return {
-        ...state,
-        isLoading: true
-      }
-      break;
-    case "ERROR": 
-      console.log("Error dispatched...");
-      return {
-        ...state,
-        error: action.payload
-      }
-      break;
-    case "COUNTER_INCREMENT":
-      console.log("Incrementing Counter....");
-      return {
-        ...state,
-        counter: state.counter + 1,
-        isLoading: false,
-        isUpdated: true
-      }
-    case "COUNTER_DECREMENT":
-      console.log("Decrementing Counter....");
-      return {
-        ...state,
-        counter: state.counter - 1,
-        isLoading: false,
-        isUpdated: true
-      }
-    default:
-      return state;
-  }  
-  return state;
-}
+import React, {useReducer} from 'react';
+import counterReducer from '../reducers/counter-reducer';
 
 const defaultState = {
   counter: 0,
