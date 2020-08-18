@@ -6,18 +6,6 @@ export default function UseStateDemo() {
     password: ""
   });
 
-  const handleUsernameChange = (e) => {
-    setLogin({
-      username: e.target.value
-    });
-  }
-
-  const handlePassswordChange = (e) => {
-    setLogin({
-      password: e.target.value
-    });
-  }
-
   const handleChange = (e) => {
     setLogin({
       ...login,

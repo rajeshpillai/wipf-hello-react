@@ -11,6 +11,7 @@ import AppHeader from './components/app-header';
 import Counter from './components/counter';
 import CounterClass from './components/counter-class';
 import UseStateDemo from './components/usestate-demo';
+import CounterFn from './components/counter-fn';
 
 function TodoApp() {
   return (
@@ -23,12 +24,16 @@ function TodoApp() {
         <nav className="top-menu">
           <Link to="/">Home</Link>
           <Link to="/counter">Counter</Link>
+          <Link to="/counterfn">Counter useState fn</Link>
           <Link to="/counterclass">Counter Class</Link>
           <Link to="/usestatedemo">useState Demo</Link>
         </nav>
         <Switch>
           <Route path="/counter">
             <Counter />
+          </Route>
+          <Route path="/counterfn">
+            <CounterFn />
           </Route>
           <Route path="/counterclass">
             <CounterClass />
