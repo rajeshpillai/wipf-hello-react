@@ -15,6 +15,7 @@ import UseStateDemo from './components/usestate-demo';
 import CounterFn from './components/counter-fn';
 import CounterMultipleState from './components/counter-multiple-state';
 import UseReducerDemo from './components/usereducer-demo';
+import Home from './components/home';
 
 function TodoApp() {
   return (
@@ -25,15 +26,16 @@ function TodoApp() {
           React Tutorial
         </AppHeader>
         <nav className="top-menu">
-          <Link to="/">Home</Link>
+          <NavLink exact to="/">Home</NavLink>
           <NavLink to="/counter">Counter</NavLink>
           <NavLink to="/counterfn">Counter useState fn</NavLink>
-          <Link to="/counterclass">Counter Class</Link>
-          <Link to="/countermultiplestate">Counter Multiple State</Link>
-          <Link to="/usestatedemo">useState Demo</Link>
-          <Link to="/usereducerdemo">useReducer Demo</Link>
+          <NavLink to="/counterclass">Counter Class</NavLink>
+          <NavLink to="/countermultiplestate">Counter Multiple State</NavLink>
+          <NavLink to="/usestatedemo">useState Demo</NavLink>
+          <NavLink to="/usereducerdemo">useReducer Demo</NavLink>
         </nav>
         <Switch>
+          
           <Route path="/counter">
             <Counter />
           </Route>
@@ -51,6 +53,9 @@ function TodoApp() {
           </Route>
           <Route path="/usereducerdemo">
             <UseReducerDemo />
+          </Route>
+          <Route path="/" exact>
+            <Home />
           </Route>
         </Switch>
       </div>
