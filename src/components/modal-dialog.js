@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
 
-
+// Definition of my model (show, onClose)
 export default function ModalDialog({children, show, onClose}) {
   console.log("show: ", show);
   const backdropStyle = {
@@ -35,6 +35,24 @@ export default function ModalDialog({children, show, onClose}) {
     setToggle(show);
   },[show])
 
+  // keyhandler
+  useEffect(() => {
+    document.addEventListener('keyup', onKeyUp);
+
+    return () => {
+      console.log("cleaning up events....");
+      document.removeEventListener('keyup', onKeyUp);
+    }
+  },[])
+
+  const onKeyUp = (e) => {
+    console.log(e.keyCode);
+    if (e.keyCode === 27) {
+      setToggle(false);
+      onClose();
+    }
+  }
+
   const handleClick = (e) => {
     setToggle(false);
     onClose();
@@ -54,7 +72,6 @@ export default function ModalDialog({children, show, onClose}) {
         </div>
       </div>
     </div>
-
   )
 }
 
