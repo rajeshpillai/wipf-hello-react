@@ -1,5 +1,6 @@
 import React, {useReducer, useState} from 'react';
 import counterReducer from '../reducers/counter-reducer';
+import {COUNTER} from '../constants/counter-constant';
 
 const defaultState = {
   counter: 0,
@@ -15,11 +16,11 @@ export default function UseReducerDemo() {
   const incr = () => {
     if (state.error.trim() != "") {
       //setError("");
-      dispatch({type: "ERROR", payload: ""})
+      dispatch({type: COUNTER.ERROR, payload: ""})
     }
     
     //setIsLoading((_) => true);
-    dispatch({type:"LOADING", payload: true});
+    dispatch({type:COUNTER.LOADING, payload: true});
 
     setTimeout(() => {
       //  setCounter((prevState) => prevState + 1);
@@ -27,7 +28,7 @@ export default function UseReducerDemo() {
       //  setIsUpdating((_) => true);
     
       dispatch({
-        type:"COUNTER_INCREMENT",
+        type:COUNTER.INCREMENT,
         payload: step
       });
     }, 1000);
@@ -36,12 +37,12 @@ export default function UseReducerDemo() {
   const decr = () => {
     if (state.counter == 0) {
       //setError("Counter should not be negative!");
-      dispatch({type: "ERROR", payload: "Counter should not be negative!"})
+      dispatch({type: COUNTER.ERROR, payload: "Counter should not be negative!"})
       return;
     }
     // setCounter(counter - 1);
     dispatch({
-      type:"COUNTER_DECREMENT",
+      type:COUNTER.DECREMENT,
       payload: step
     });
   }
