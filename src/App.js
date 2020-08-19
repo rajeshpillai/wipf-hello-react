@@ -18,7 +18,7 @@ import UseReducerDemo from './components/usereducer-demo';
 import Home from './components/home';
 import UseRefDemo from './components/useref-demo';
 import UseEffectDemo from './components/useeffect-demo';
-
+import ModalDemo from './components/modal-demo';
 
 function TodoApp() {
   const [show, toggleShow] = useState(true);
@@ -45,6 +45,8 @@ function TodoApp() {
           <NavLink to="/usereducerdemo">useReducer Demo</NavLink>
           <NavLink to="/userefdemo">useRef Demo</NavLink>
           <NavLink to="/useeffectdemo">useEffect Demo</NavLink>
+          <NavLink to="/modaldemo">Modal Demo</NavLink>
+
           
         </nav>
         <Switch>
@@ -71,9 +73,11 @@ function TodoApp() {
             <UseRefDemo />
           </Route>
           <Route path="/useeffectdemo">
-            {show && <UseEffectDemo /> }
+            {show && <UseEffectDemo  /> }
           </Route>
-          
+          <Route path="/modaldemo">
+            <ModalDemo />
+          </Route>
           <Route path="/" exact>
             <Home />
           </Route>

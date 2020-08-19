@@ -14,6 +14,9 @@ function UseEffectDemo(props) {
     }
   });
 
+  // const fn = () => {}
+  // useEffect(fn)
+
   useEffect(function(){
     console.log(`Normal Function: Render: Count: ${count}`);
   });
@@ -43,6 +46,16 @@ function UseEffectDemo(props) {
       clearInterval(timerId);
     }
   },[]);
+
+
+  // 4. useEffect with parameter, will fire everytime the parameter changes
+  //    including cleanup will fire as well.
+  useEffect(() => {
+    console.log(`When deps changes: ${count}`);
+    return ()=> {
+      console.log("This will fire anytime the deps change!!")
+    }
+  },[count])
 
   return (
     <div>
