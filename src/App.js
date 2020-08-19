@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,14 +17,23 @@ import CounterMultipleState from './components/counter-multiple-state';
 import UseReducerDemo from './components/usereducer-demo';
 import Home from './components/home';
 import UseRefDemo from './components/useref-demo';
+import UseEffectDemo from './components/useeffect-demo';
+
 
 function TodoApp() {
+  const [show, toggleShow] = useState(true);
+
+  const onToggleShow = (e) => {
+    toggleShow(show => !show)
+  }
+
   return (
     <Router>
       <div className ="App">
         <AppHeader className="header"
           subTitle= "awesomeapp">
           React Tutorial
+  <button onClick={onToggleShow}>Toggle Show (useEffect) - {show.toString()}</button>
         </AppHeader>
         <nav className="top-menu">
           <NavLink exact to="/">Home</NavLink>
@@ -35,6 +44,8 @@ function TodoApp() {
           <NavLink to="/usestatedemo">useState Demo</NavLink>
           <NavLink to="/usereducerdemo">useReducer Demo</NavLink>
           <NavLink to="/userefdemo">useRef Demo</NavLink>
+          <NavLink to="/useeffectdemo">useEffect Demo</NavLink>
+          
         </nav>
         <Switch>
           
@@ -59,7 +70,10 @@ function TodoApp() {
           <Route path="/userefdemo">
             <UseRefDemo />
           </Route>
-          userefdemo
+          <Route path="/useeffectdemo">
+            {show && <UseEffectDemo /> }
+          </Route>
+          
           <Route path="/" exact>
             <Home />
           </Route>
