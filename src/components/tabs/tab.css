@@ -1,6 +1,7 @@
 .tab-container {
   display: flex;
 }
+
 .tabs {
   display: flex;
   flex-direction: column;

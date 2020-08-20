@@ -1,6 +1,5 @@
 import React from 'react';
 import Tabs from './tabs';
-import Tab from './tabs/tab';
 
 function TabDemo(props) {
   const onTabChanged = (index) => {
@@ -11,18 +10,18 @@ function TabDemo(props) {
     <div>
       <h2>Tab Demo</h2>
       <Tabs onTabChanged={onTabChanged}>
-        <Tab title="React">
+        <Tabs.Tab title="React">
           Some react content here.
-        </Tab>
-        <Tab title="Vue">
+        </Tabs.Tab>
+        <Tabs.Tab title="Vue">
           Some Vue content here.
-        </Tab>
-        <Tab title="Angular">
+        </Tabs.Tab>
+        <Tabs.Tab title="Angular">
           Some Angular content here.
-        </Tab>
-        <Tab title="Svelte">
+        </Tabs.Tab>
+        <Tabs.Tab title="Svelte">
           Some Svelte content here.
-        </Tab>
+        </Tabs.Tab>
       </Tabs>
    </div>
   )

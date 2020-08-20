@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
+import Tab from './tab';
 import './tab.css';
+
 
 export default function Tabs({children, onTabChanged}) {
   const [currentIndex, setCurrentIndex] = useState(0);
