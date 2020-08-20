@@ -31,3 +31,5 @@ export default function Tabs({children, onTabChanged}) {
     </div>
   )
 }
+
+Tabs.Tab = Tab;
