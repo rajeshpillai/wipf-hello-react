@@ -3,7 +3,6 @@ import Tabs from './tabs';
 import Tab from './tabs/tab';
 
 function TabDemo(props) {
-
   const onTabChanged = (index) => {
     alert(index);
   }

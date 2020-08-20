@@ -14,7 +14,7 @@ export default function Tabs({children, onTabChanged}) {
       {
         children.map((child, index) => {
           return (
-            <div className="tabs">
+            <div className="tabs" key={child.props.title}>
               <a href="#" onClick={()=>handleClick(index)}>{child.props.title}</a> 
               
               { index === currentIndex && 
