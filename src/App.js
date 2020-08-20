@@ -19,6 +19,8 @@ import Home from './components/home';
 import UseRefDemo from './components/useref-demo';
 import UseEffectDemo from './components/useeffect-demo';
 import ModalDemo from './components/modal-demo';
+import TabDemo from './components/tab-demo';
+
 
 function TodoApp() {
   const [show, toggleShow] = useState(true);
@@ -46,8 +48,7 @@ function TodoApp() {
           <NavLink to="/userefdemo">useRef Demo</NavLink>
           <NavLink to="/useeffectdemo">useEffect Demo</NavLink>
           <NavLink to="/modaldemo">Modal Demo</NavLink>
-
-          
+          <NavLink to="/tabdemo">Tab Demo</NavLink>
         </nav>
         <Switch>
           
@@ -77,6 +78,9 @@ function TodoApp() {
           </Route>
           <Route path="/modaldemo">
             <ModalDemo />
+          </Route>
+          <Route path="/tabdemo">
+            <TabDemo />
           </Route>
           <Route path="/" exact>
             <Home />

@@ -1,0 +1,23 @@
+.tab-container {
+  display: flex;
+}
+.tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs a {
+  padding: 10px;
+}
+
+.tabs a:hover {
+  background: pink;
+}
+
+.tab-content {
+  width: 400px;
+  min-height: 200px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background: white;
+}
