@@ -20,6 +20,8 @@ import UseRefDemo from './components/useref-demo';
 import UseEffectDemo from './components/useeffect-demo';
 import ModalDemo from './components/modal-demo';
 import TabDemo from './components/tab-demo';
+import ContextDemo from './components/context-demo';
+
 
 
 function TodoApp() {
@@ -49,43 +51,49 @@ function TodoApp() {
           <NavLink to="/useeffectdemo">useEffect Demo</NavLink>
           <NavLink to="/modaldemo">Modal Demo</NavLink>
           <NavLink to="/tabdemo">Tab Demo</NavLink>
+          <NavLink to="/contextdemo">Context Demo</NavLink>
+
         </nav>
-        <Switch>
-          
-          <Route path="/counter">
-            <Counter />
-          </Route>
-          <Route path="/counterfn">
-            <CounterFn />
-          </Route>
-          <Route path="/counterclass">
-            <CounterClass />
-          </Route>
-          <Route path="/countermultiplestate">
-            <CounterMultipleState />
-          </Route>
-          <Route path="/usestatedemo">
-            <UseStateDemo />
-          </Route>
-          <Route path="/usereducerdemo">
-            <UseReducerDemo />
-          </Route>
-          <Route path="/userefdemo">
-            <UseRefDemo />
-          </Route>
-          <Route path="/useeffectdemo">
-            {show && <UseEffectDemo  /> }
-          </Route>
-          <Route path="/modaldemo">
-            <ModalDemo />
-          </Route>
-          <Route path="/tabdemo">
-            <TabDemo />
-          </Route>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-        </Switch>
+        <div className="content">
+          <Switch>
+            <Route path="/counter">
+              <Counter />
+            </Route>
+            <Route path="/counterfn">
+              <CounterFn />
+            </Route>
+            <Route path="/counterclass">
+              <CounterClass />
+            </Route>
+            <Route path="/countermultiplestate">
+              <CounterMultipleState />
+            </Route>
+            <Route path="/usestatedemo">
+              <UseStateDemo />
+            </Route>
+            <Route path="/usereducerdemo">
+              <UseReducerDemo />
+            </Route>
+            <Route path="/userefdemo">
+              <UseRefDemo />
+            </Route>
+            <Route path="/useeffectdemo">
+              {show && <UseEffectDemo  /> }
+            </Route>
+            <Route path="/modaldemo">
+              <ModalDemo />
+            </Route>
+            <Route path="/tabdemo">
+              <TabDemo />
+            </Route>
+            <Route path="/contextdemo">
+              <ContextDemo />
+            </Route>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+          </Switch>
+          </div>
       </div>
     </Router>
   );

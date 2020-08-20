@@ -28,3 +28,10 @@ body {
   background: rebeccapurple;
   color: white;
 }
+
+.content {
+  margin-top: 10px;
+  background: lightgray;
+  height: 100vh;
+  padding: 10px;
+}
