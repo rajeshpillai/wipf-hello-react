@@ -20,8 +20,8 @@ import UseRefDemo from './components/useref-demo';
 import UseEffectDemo from './components/useeffect-demo';
 import ModalDemo from './components/modal-demo';
 import TabDemo from './components/tab-demo';
-import ContextDemo from './components/context-demo';
-
+import TodoWithoutContext from './components/todo-without-context';
+import TodoWithContext from './components/todo-with-context';
 
 
 function TodoApp() {
@@ -51,7 +51,8 @@ function TodoApp() {
           <NavLink to="/useeffectdemo">useEffect Demo</NavLink>
           <NavLink to="/modaldemo">Modal Demo</NavLink>
           <NavLink to="/tabdemo">Tab Demo</NavLink>
-          <NavLink to="/contextdemo">Context Demo</NavLink>
+          <NavLink to="/todowithoutcontext">Todo Without Context Demo</NavLink>
+          <NavLink to="/todowithcontext">Todo with Context</NavLink>
 
         </nav>
         <div className="content">
@@ -86,8 +87,11 @@ function TodoApp() {
             <Route path="/tabdemo">
               <TabDemo />
             </Route>
-            <Route path="/contextdemo">
-              <ContextDemo />
+            <Route path="/todowithoutcontext">
+              <TodoWithoutContext />
+            </Route>
+            <Route path="/todowithcontext">
+              <TodoWithContext />
             </Route>
             <Route path="/" exact>
               <Home />

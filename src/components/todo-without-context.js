@@ -1,6 +1,6 @@
 import React, {useState, useRef} from 'react';
 
-export default function ContextDemo(props) {
+export default function TodoWithoutContext(props) {
   const [todos, setTodos] = useState(
     [
       {id: 1, title: "todo 1"},
@@ -33,6 +33,7 @@ export default function ContextDemo(props) {
 
   return (
     <TodoApp>
+        <h2>Todo without Context</h2>
         <TodoForm onTodoAdded={onTodoAdded} />
         <TodoList data={todos} onTodoDelete={onTodoDelete}/ >
     </TodoApp>
