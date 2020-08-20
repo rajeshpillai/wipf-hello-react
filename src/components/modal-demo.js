@@ -1,16 +1,20 @@
-import React,{useState} from 'react';
+import React,{useState, useContext} from 'react';
 import ModalDialog from './modal-dialog';
+
+import { ThemeContext } from './context/theme-context';
 
 function ModalDemo(props) {
   const [isShowing, setIsShowing] = useState(false);
   
+  const theme = useContext(ThemeContext);
+
   const toggle = () => {
     //setIsShowing(!isShowing);
     setIsShowing((prevState) => !prevState);
   }
 
   return (
-    <div>
+    <div className={theme}>
       {isShowing.toString()}
       <button onClick={toggle}>Show Modal</button>
       { isShowing &&

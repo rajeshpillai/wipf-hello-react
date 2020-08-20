@@ -23,6 +23,7 @@ import TabDemo from './components/tab-demo';
 import TodoWithoutContext from './components/todo-without-context';
 import TodoWithContext from './components/todo-with-context';
 
+import {ThemeContext} from './components/context/theme-context';
 
 function TodoApp() {
   const [show, toggleShow] = useState(true);
@@ -31,75 +32,96 @@ function TodoApp() {
     toggleShow(show => !show)
   }
 
-  return (
-    <Router>
-      <div className ="App">
-        <AppHeader className="header"
-          subTitle= "awesomeapp">
-          React Tutorial
-  <button onClick={onToggleShow}>Toggle Show (useEffect) - {show.toString()}</button>
-        </AppHeader>
-        <nav className="top-menu">
-          <NavLink exact to="/">Home</NavLink>
-          <NavLink to="/counter">Counter</NavLink>
-          <NavLink to="/counterfn">Counter useState fn</NavLink>
-          <NavLink to="/counterclass">Counter Class</NavLink>
-          <NavLink to="/countermultiplestate">Counter Multiple State</NavLink>
-          <NavLink to="/usestatedemo">useState Demo</NavLink>
-          <NavLink to="/usereducerdemo">useReducer Demo</NavLink>
-          <NavLink to="/userefdemo">useRef Demo</NavLink>
-          <NavLink to="/useeffectdemo">useEffect Demo</NavLink>
-          <NavLink to="/modaldemo">Modal Demo</NavLink>
-          <NavLink to="/tabdemo">Tab Demo</NavLink>
-          <NavLink to="/todowithoutcontext">Todo Without Context Demo</NavLink>
-          <NavLink to="/todowithcontext">Todo with Context</NavLink>
+  const ThemeProvider = ({children}) => {
+    const [theme, setTheme] = useState("red");
 
-        </nav>
-        <div className="content">
-          <Switch>
-            <Route path="/counter">
-              <Counter />
-            </Route>
-            <Route path="/counterfn">
-              <CounterFn />
-            </Route>
-            <Route path="/counterclass">
-              <CounterClass />
-            </Route>
-            <Route path="/countermultiplestate">
-              <CounterMultipleState />
-            </Route>
-            <Route path="/usestatedemo">
-              <UseStateDemo />
-            </Route>
-            <Route path="/usereducerdemo">
-              <UseReducerDemo />
-            </Route>
-            <Route path="/userefdemo">
-              <UseRefDemo />
-            </Route>
-            <Route path="/useeffectdemo">
-              {show && <UseEffectDemo  /> }
-            </Route>
-            <Route path="/modaldemo">
-              <ModalDemo />
-            </Route>
-            <Route path="/tabdemo">
-              <TabDemo />
-            </Route>
-            <Route path="/todowithoutcontext">
-              <TodoWithoutContext />
-            </Route>
-            <Route path="/todowithcontext">
-              <TodoWithContext />
-            </Route>
-            <Route path="/" exact>
-              <Home />
-            </Route>
-          </Switch>
-          </div>
-      </div>
-    </Router>
+    const handleChange = (e) => {
+      setTheme(e.target.value);
+    }
+
+    return (
+      <ThemeContext.Provider value ={theme}>
+        <select onChange = {handleChange}>
+          <option value="red">Red </option>
+          <option value="green">Green </option>
+        </select>
+        {children}
+      </ThemeContext.Provider>
+
+    )
+  }
+
+  return (
+    <ThemeProvider>
+      <Router>
+        <div className ="App">
+          <AppHeader className="header"
+            subTitle= "awesomeapp">
+            React Tutorial
+    <button onClick={onToggleShow}>Toggle Show (useEffect) - {show.toString()}</button>
+          </AppHeader>
+          <nav className="top-menu">
+            <NavLink exact to="/">Home</NavLink>
+            <NavLink to="/counter">Counter</NavLink>
+            <NavLink to="/counterfn">Counter useState fn</NavLink>
+            <NavLink to="/counterclass">Counter Class</NavLink>
+            <NavLink to="/countermultiplestate">Counter Multiple State</NavLink>
+            <NavLink to="/usestatedemo">useState Demo</NavLink>
+            <NavLink to="/usereducerdemo">useReducer Demo</NavLink>
+            <NavLink to="/userefdemo">useRef Demo</NavLink>
+            <NavLink to="/useeffectdemo">useEffect Demo</NavLink>
+            <NavLink to="/modaldemo">Modal Demo</NavLink>
+            <NavLink to="/tabdemo">Tab Demo</NavLink>
+            <NavLink to="/todowithoutcontext">Todo Without Context Demo</NavLink>
+            <NavLink to="/todowithcontext">Todo with Context</NavLink>
+
+          </nav>
+          <div className="content">
+            <Switch>
+              <Route path="/counter">
+                <Counter />
+              </Route>
+              <Route path="/counterfn">
+                <CounterFn />
+              </Route>
+              <Route path="/counterclass">
+                <CounterClass />
+              </Route>
+              <Route path="/countermultiplestate">
+                <CounterMultipleState />
+              </Route>
+              <Route path="/usestatedemo">
+                <UseStateDemo />
+              </Route>
+              <Route path="/usereducerdemo">
+                <UseReducerDemo />
+              </Route>
+              <Route path="/userefdemo">
+                <UseRefDemo />
+              </Route>
+              <Route path="/useeffectdemo">
+                {show && <UseEffectDemo  /> }
+              </Route>
+              <Route path="/modaldemo">
+                <ModalDemo />
+              </Route>
+              <Route path="/tabdemo">
+                <TabDemo />
+              </Route>
+              <Route path="/todowithoutcontext">
+                <TodoWithoutContext />
+              </Route>
+              <Route path="/todowithcontext">
+                <TodoWithContext />
+              </Route>
+              <Route path="/" exact>
+                <Home />
+              </Route>
+            </Switch>
+            </div>
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 

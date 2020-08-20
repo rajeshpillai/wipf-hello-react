@@ -1,7 +1,9 @@
 import React from 'react';
 
-export default function TodoApp({children}) {
+export default function TodoApp({theme,children}) {
   return (
-    children
+    <div className={theme}>
+      {children}
+    </div>
   )
 }

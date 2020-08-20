@@ -1,6 +1,9 @@
-import React, {useRef} from 'react';
-export default function TodoForm({onTodoAdded}) {
+import React, {useRef, useContext} from 'react';
+import {TodoContext} from '../context/todoapp-context';
+
+export default function TodoForm() {
   const inputRef = useRef();
+  const {onTodoAdded} = useContext(TodoContext);
 
   const onSubmit = (e) => {
     e.preventDefault();

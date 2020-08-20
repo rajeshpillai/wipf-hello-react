@@ -1,8 +1,10 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useContext} from 'react';
 import TodoApp from './todo-context/todo-app';
 import TodoForm from './todo-context/todo-form';
 import TodoList from './todo-context/todo-list';
-import TodoItem from './todo-context/todo-item';
+
+import {TodoContext} from './context/todoapp-context';
+import { ThemeContext } from './context/theme-context';
 
 export default function TodoWithContext(props) {
   const [todos, setTodos] = useState(
@@ -14,6 +16,8 @@ export default function TodoWithContext(props) {
       {id: 5, title: "todo 5"},
     ]
   )
+
+  const theme = useContext(ThemeContext);
 
   const onTodoAdded = (todoTitle) => {
     //alert(todo);
@@ -33,13 +37,20 @@ export default function TodoWithContext(props) {
     setTodos([...remainingTodos]);
   }
 
+  const todoProvider = {
+    data: todos,
+    onTodoDelete,
+    onTodoAdded,
+  }
 
   return (
-    <TodoApp>
-        <h2>Todo with Context</h2>
-        <TodoForm onTodoAdded={onTodoAdded} />
-        <TodoList data={todos} onTodoDelete={onTodoDelete}/ >
-    </TodoApp>
+    <TodoContext.Provider value={todoProvider} >
+      <TodoApp theme={theme}>
+          <h2>Todo with Context</h2>
+          <TodoForm />
+          <TodoList data={todos}/ >
+      </TodoApp>
+    </TodoContext.Provider>
   )
 }
 

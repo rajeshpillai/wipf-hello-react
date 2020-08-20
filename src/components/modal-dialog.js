@@ -1,7 +1,10 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState, useEffect, useContext} from 'react';
+import { ThemeContext } from './context/theme-context';
 
 // Definition of my model (show, onClose)
 export default function ModalDialog({children, show, onClose}) {
+  const theme = useContext(ThemeContext);
+
   console.log("show: ", show);
   const backdropStyle = {
     position: "fixed",
@@ -64,8 +67,8 @@ export default function ModalDialog({children, show, onClose}) {
   }
   
   return (
-    <div style={backdropStyle}>
-      <div style={modalStyle}>
+    <div style={backdropStyle} className={theme}>
+      <div style={modalStyle} >
         {children}
         <div style={footerStyle}>
           <button onClick={handleClick}>Close</button>
