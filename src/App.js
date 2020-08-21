@@ -25,6 +25,7 @@ import TodoWithoutContext from './components/todo-without-context';
 import TodoWithContext from './components/todo-with-context';
 
 import {ThemeContext} from './context/theme-context';
+import Layout from './pages/layout';
 
 function TodoApp() {
   const [show, toggleShow] = useState(true);
@@ -53,31 +54,18 @@ function TodoApp() {
   }
 
   return (
-    <ThemeProvider>
-      <Router>
-        <div className ="App">
+    <div className ="container-fluid">
+      <ThemeProvider>
+        <Router>
+          <Layout/>
           <AppHeader className="header"
             subTitle= "awesomeapp">
             React Tutorial
-    <button onClick={onToggleShow}>Toggle Show (useEffect) - {show.toString()}</button>
+            <button onClick={onToggleShow} className="btn btn-primary">
+                Toggle Show (useEffect) - {show.toString()}
+                <i className="pl-2 fas fa-check-circle"></i>
+            </button>
           </AppHeader>
-          <nav className="top-menu">
-            <NavLink exact to="/">Home</NavLink>
-            <NavLink exact to="/contactus">Contact Us</NavLink>
-            <NavLink to="/counter">Counter</NavLink>
-            <NavLink to="/counterfn">Counter useState fn</NavLink>
-            <NavLink to="/counterclass">Counter Class</NavLink>
-            <NavLink to="/countermultiplestate">Counter Multiple State</NavLink>
-            <NavLink to="/usestatedemo">useState Demo</NavLink>
-            <NavLink to="/usereducerdemo">useReducer Demo</NavLink>
-            <NavLink to="/userefdemo">useRef Demo</NavLink>
-            <NavLink to="/useeffectdemo">useEffect Demo</NavLink>
-            <NavLink to="/modaldemo">Modal Demo</NavLink>
-            <NavLink to="/tabdemo">Tab Demo</NavLink>
-            <NavLink to="/todowithoutcontext">Todo Without Context Demo</NavLink>
-            <NavLink to="/todowithcontext">Todo with Context</NavLink>
-
-          </nav>
           <div className="content">
             <Switch>
               <Route path="/counter">
@@ -123,10 +111,10 @@ function TodoApp() {
                 <Home />
               </Route>
             </Switch>
-            </div>
-        </div>
-      </Router>
-    </ThemeProvider>
+          </div>
+        </Router>
+      </ThemeProvider>
+    </div>
   );
 }
 

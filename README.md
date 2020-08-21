@@ -1,3 +1,22 @@
+# Setup bootstrap
+npm i --save bootstrap jquery popper.js
+
+add it to index.js
+
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+import $ from 'jquery';
+import Popper from 'popper.js'
+
+# Fontawesome
+yarn add @fortawesome/fontawesome-free
+or 
+npm i @fortawesome/fontawesome-free
+
+import '@fortawesome/fontawesome-free/css/all.css';
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
