@@ -15,7 +15,8 @@ import UseStateDemo from './components/usestate-demo';
 import CounterFn from './components/counter-fn';
 import CounterMultipleState from './components/counter-multiple-state';
 import UseReducerDemo from './components/usereducer-demo';
-import Home from './components/home';
+import Home from './pages/home';
+import About from './pages/aboutus';
 import UseRefDemo from './components/useref-demo';
 import UseEffectDemo from './components/useeffect-demo';
 import ModalDemo from './components/modal-demo';
@@ -23,7 +24,7 @@ import TabDemo from './components/tab-demo';
 import TodoWithoutContext from './components/todo-without-context';
 import TodoWithContext from './components/todo-with-context';
 
-import {ThemeContext} from './components/context/theme-context';
+import {ThemeContext} from './context/theme-context';
 
 function TodoApp() {
   const [show, toggleShow] = useState(true);
@@ -62,6 +63,7 @@ function TodoApp() {
           </AppHeader>
           <nav className="top-menu">
             <NavLink exact to="/">Home</NavLink>
+            <NavLink exact to="/aboutus">About Us</NavLink>
             <NavLink to="/counter">Counter</NavLink>
             <NavLink to="/counterfn">Counter useState fn</NavLink>
             <NavLink to="/counterclass">Counter Class</NavLink>
@@ -113,6 +115,9 @@ function TodoApp() {
               </Route>
               <Route path="/todowithcontext">
                 <TodoWithContext />
+              </Route>
+              <Route path="/aboutus" exact>
+                <About />
               </Route>
               <Route path="/" exact>
                 <Home />

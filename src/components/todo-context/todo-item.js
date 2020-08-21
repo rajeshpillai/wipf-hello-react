@@ -1,5 +1,5 @@
 import React, {useContext}  from 'react';
-import {TodoContext} from '../context/todoapp-context';
+import {TodoContext} from '../../context/todoapp-context';
 
 export default function TodoItem({todo}) {
   const {onTodoDelete} = useContext(TodoContext);

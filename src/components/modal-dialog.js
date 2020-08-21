@@ -1,5 +1,5 @@
 import React,{useState, useEffect, useContext} from 'react';
-import { ThemeContext } from './context/theme-context';
+import { ThemeContext } from '../context/theme-context';
 
 // Definition of my model (show, onClose)
 export default function ModalDialog({children, show, onClose}) {

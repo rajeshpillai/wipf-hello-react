@@ -1,7 +1,7 @@
 import React,{useState, useContext} from 'react';
 import ModalDialog from './modal-dialog';
 
-import { ThemeContext } from './context/theme-context';
+import { ThemeContext } from '../context/theme-context';
 
 function ModalDemo(props) {
   const [isShowing, setIsShowing] = useState(false);

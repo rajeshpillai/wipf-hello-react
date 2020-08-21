@@ -3,8 +3,8 @@ import TodoApp from './todo-context/todo-app';
 import TodoForm from './todo-context/todo-form';
 import TodoList from './todo-context/todo-list';
 
-import {TodoContext} from './context/todoapp-context';
-import { ThemeContext } from './context/theme-context';
+import {TodoContext} from '../context/todoapp-context';
+import { ThemeContext } from '../context/theme-context';
 
 export default function TodoWithContext(props) {
   const [todos, setTodos] = useState(
