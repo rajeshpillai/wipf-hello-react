@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function TextInput({type="text",value,label, name, placeholder,onInputChange, ...rest}) {
+export default function TextInput({type="text",value, error, label, name, placeholder,onInputChange, ...rest}) {
   return (
     <div>
       <label>{label}</label>
@@ -11,6 +11,7 @@ export default function TextInput({type="text",value,label, name, placeholder,on
         defaultValue={value}
         placeholder={placeholder}
         onChange={onInputChange}/>
+        {error && <div className="error" style={{color: 'white'}}>{error}</div>}
     </div>
   )
 }
@@ -21,6 +22,7 @@ TextInput.propTypes = {
   placeholder: PropTypes.string,
   onInputChange: PropTypes.func,
   value: PropTypes.any,
+  error: PropTypes.string
 }
 
 TextInput.defaultProps = {

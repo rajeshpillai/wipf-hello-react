@@ -9,6 +9,12 @@ export default function ContactUs() {
     age:""
   });
 
+  const [error, setError] = useState({
+    name: "",
+    email: "",
+    age:""
+  });
+
   const handleChange = (e) => {
     console.log(e.target.value);
 
@@ -16,11 +22,25 @@ export default function ContactUs() {
       ...contact,
       [e.target.name]: e.target.value
     }) 
+
+    if (e.target.value.trim().length > 0) {
+      setError({
+        ...error,
+        [e.target.name]: ""
+      })
+    }
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(JSON.stringify(contact));
+    if (contact.name.trim().length == 0) {
+      setError({
+        ...error,
+        name: "Name should not be blank!"
+      })
+    } else {
+      alert(JSON.stringify(contact));
+    }
   }
     
   return (
@@ -30,6 +50,7 @@ export default function ContactUs() {
         <TextInput
         label="Name"
         name="name"
+        error={error.name}
         value= {contact.name}
         placeholder="Enter your name"
         onInputChange = {handleChange}
@@ -38,6 +59,7 @@ export default function ContactUs() {
         <TextInput
           label="Email"
           name="email"
+          error={error.email}
           value={contact.email}
           onInputChange = {handleChange}
           required
@@ -47,6 +69,7 @@ export default function ContactUs() {
         label="Age"
         type="number"
         name="age"
+        error={error.age}
         value= {contact.age}
         placeholder="Enter your age"
         onInputChange = {handleChange}
