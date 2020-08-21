@@ -16,7 +16,7 @@ import CounterFn from './components/counter-fn';
 import CounterMultipleState from './components/counter-multiple-state';
 import UseReducerDemo from './components/usereducer-demo';
 import Home from './pages/home';
-import About from './pages/aboutus';
+import ContactUs from './pages/contactus';
 import UseRefDemo from './components/useref-demo';
 import UseEffectDemo from './components/useeffect-demo';
 import ModalDemo from './components/modal-demo';
@@ -63,7 +63,7 @@ function TodoApp() {
           </AppHeader>
           <nav className="top-menu">
             <NavLink exact to="/">Home</NavLink>
-            <NavLink exact to="/aboutus">About Us</NavLink>
+            <NavLink exact to="/contactus">Contact Us</NavLink>
             <NavLink to="/counter">Counter</NavLink>
             <NavLink to="/counterfn">Counter useState fn</NavLink>
             <NavLink to="/counterclass">Counter Class</NavLink>
@@ -116,8 +116,8 @@ function TodoApp() {
               <Route path="/todowithcontext">
                 <TodoWithContext />
               </Route>
-              <Route path="/aboutus" exact>
-                <About />
+              <Route path="/contactus" exact>
+                <ContactUs />
               </Route>
               <Route path="/" exact>
                 <Home />
