@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function TextInput({value,label, name, placeholder,onInputChange}) {
+export default function TextInput({type="text",value,label, name, placeholder,onInputChange, ...rest}) {
   return (
     <div>
       <label>{label}</label>
       <input type="text" name={name} 
-        value={value}
+        {...rest}
+        type={type}
+        defaultValue={value}
         placeholder={placeholder}
         onChange={onInputChange}/>
     </div>
@@ -17,7 +19,7 @@ TextInput.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
-  onInputChange: PropTypes.func.isRequired,
+  onInputChange: PropTypes.func,
   value: PropTypes.any,
 }
 
