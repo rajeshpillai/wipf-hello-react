@@ -6,29 +6,29 @@ import {
 
 export default function Layout() {
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <NavLink to="/" className="navbar-brand" href="#">Home</NavLink>
       <NavLink className="navbar-brand"  to="/todowithoutcontext">Todo Without Context Demo</NavLink>
       <NavLink className="navbar-brand"  to="/todowithcontext">Todo with Context</NavLink>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
+      <div className="collapse navbar-collapse" id="navbarNav">
+        <ul className="navbar-nav">
+          <li className="nav-item active">
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+          <li className="nav-item">
+            <a className="nav-link" href="#">Features</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <li className="nav-item dropdown">
+            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Tutorials
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <NavLink className="dropdown-item" exact to="/contactus">Contact Us</NavLink>
               <NavLink className="dropdown-item" to="/counter">Counter</NavLink>
               <NavLink className="dropdown-item" to="/counterfn">Counter useState fn</NavLink>
-              <NavLink className="dropdown-item" to="/counterclass">Counter Class</NavLink>
+              <NavLink className="dropdown-item" to="/counterclass">Counter className</NavLink>
               <NavLink className="dropdown-item" to="/countermultiplestate">Counter Multiple State</NavLink>
               <NavLink className="dropdown-item" to="/usestatedemo">useState Demo</NavLink>
               <NavLink className="dropdown-item" to="/usereducerdemo">useReducer Demo</NavLink>
