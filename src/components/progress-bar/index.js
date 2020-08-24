@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './style.css';
 
-export default function ProgressBar({percent, width, height}) {
+export default function ProgressBar({percent, width, height=5}) {
   const getWidthAsPercent = () => {
     return Number((width * percent / 100))
   }
@@ -14,7 +14,7 @@ export default function ProgressBar({percent, width, height}) {
   }
 
   return(
-    <div style={{border: 'solid 1px blue', width: width}} >
+    <div style={{border: 'solid 1px lightgray', width: width}} >
       <div style={{
         width: getWidthAsPercent(),
         height:height,
@@ -23,7 +23,7 @@ export default function ProgressBar({percent, width, height}) {
     </div>
   )
 }
-
+// Only for development 
 ProgressBar.propTypes = {
 }
 
