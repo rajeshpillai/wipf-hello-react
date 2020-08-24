@@ -1,5 +1,9 @@
-.inactive, .active {
+.star {
+  display: inline-block;  
   cursor: pointer;
+}
+
+.inactive, .active {
   background: transparent;
   user-select: none;
 }

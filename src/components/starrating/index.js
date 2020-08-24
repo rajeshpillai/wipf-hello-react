@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 
 import './star.css';
 
-export default function StarRating({count, value, activeColor='#f00', onChange}) {
+export default function StarRating({count, value, 
+    inactiveColor='#ddd',
+    size=24,
+    activeColor='#f00', onChange}) {
 
   const stars = Array.from({length: count}, () => '🟊')  //Unicode number	U+1F7CA
 
@@ -17,16 +20,14 @@ export default function StarRating({count, value, activeColor='#f00', onChange})
   return (
     <div>
       {stars.map((s, index) => {
-        let css = 'inactive';
-        let style = '#ddd';
+        let style = inactiveColor;
         if (index < value) {
-          css = 'active';
           style=activeColor;
         }
         return (
-          <span className={css}  
+          <span className={"star"}  
             key={index}
-            style={{color: style}}
+            style={{color: style, width:size, height:size, fontSize: size}}
             onClick={()=>handleChange(index)}>{s}</span>
         )
       })}

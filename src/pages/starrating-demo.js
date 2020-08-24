@@ -13,8 +13,10 @@ export default function StarRatingDemo() {
 
       <StarRating 
         count={5}
+        size={40}
         value={rating}
         activeColor ={'#206a5d'}
+        inactiveColor={'#ddd'}
         onChange={handleChange}  />
 
     </div>
