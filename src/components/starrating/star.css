@@ -1,0 +1,12 @@
+.inactive, .active {
+  cursor: pointer;
+  background: transparent;
+}
+
+.inactive {
+  color: gray;
+}
+
+.active {
+  color: red;
+}
