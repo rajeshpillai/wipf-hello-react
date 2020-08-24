@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import PropTypes from 'prop-types';
+
 import './star.css';
 
 export default function StarRating({count, value, activeColor='#f00', onChange}) {
@@ -8,6 +10,9 @@ export default function StarRating({count, value, activeColor='#f00', onChange})
   const handleChange = (value) => {
     onChange(value + 1);
   }
+
+  // REMOVE CSS CLASS NAME IF NOT NEEDED.
+  // I AM KEEPING HERE FOR REFERENCE ONLY
 
   return (
     <div>
@@ -20,6 +25,7 @@ export default function StarRating({count, value, activeColor='#f00', onChange})
         }
         return (
           <span className={css}  
+            key={index}
             style={{color: style}}
             onClick={()=>handleChange(index)}>{s}</span>
         )
@@ -28,3 +34,8 @@ export default function StarRating({count, value, activeColor='#f00', onChange})
     </div>
   )
 }
+
+StarRating.propTypes = {
+  count: PropTypes.number.isRequired
+}
+

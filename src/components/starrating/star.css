@@ -1,6 +1,7 @@
 .inactive, .active {
   cursor: pointer;
   background: transparent;
+  user-select: none;
 }
 
 .inactive {
