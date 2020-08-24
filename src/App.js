@@ -27,7 +27,7 @@ import TodoWithContext from './components/todo-with-context';
 import {ThemeContext} from './context/theme-context';
 import Layout from './pages/layout';
 
-import StarRatingDemo from './pages/starrating-demo';
+import ComponentDemo from './pages/component-demo';
 
 function TodoApp() {
   const [show, toggleShow] = useState(true);
@@ -109,8 +109,8 @@ function TodoApp() {
               <Route path="/contactus" exact>
                 <ContactUs />
               </Route>
-              <Route path="/starratingdemo" exact>
-                <StarRatingDemo />
+              <Route path="/componentdemo" exact>
+                <ComponentDemo />
               </Route>
               <Route path="/" exact>
                 <Home />

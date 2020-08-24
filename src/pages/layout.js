@@ -10,7 +10,7 @@ export default function Layout() {
       <NavLink to="/" className="navbar-brand" href="#">Home</NavLink>
       <NavLink className="navbar-brand"  to="/todowithoutcontext">Todo Without Context Demo</NavLink>
       <NavLink className="navbar-brand"  to="/todowithcontext">Todo with Context</NavLink>
-      <NavLink className="navbar-brand"  to="/starratingdemo">Star Rating Demo</NavLink>
+      <NavLink className="navbar-brand"  to="/componentdemo">Component Demo</NavLink>
       
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
