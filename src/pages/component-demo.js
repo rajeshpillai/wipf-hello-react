@@ -34,6 +34,11 @@ export default function StarRatingDemo() {
         50%
         <ProgressBar percent={50} width={250} height={20}/>
         <br/>
+
+        53.55%
+        <ProgressBar percent={53.55} width={250} height={20}/>
+        <br/>
+
         25%
         <ProgressBar percent={25} width={250}/>
 

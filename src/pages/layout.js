@@ -8,6 +8,7 @@ export default function Layout() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <NavLink to="/" className="navbar-brand" href="#">Home</NavLink>
+      <NavLink className="navbar-brand"  to="/blog">Blog</NavLink>
       <NavLink className="navbar-brand"  to="/todowithoutcontext">Todo Without Context Demo</NavLink>
       <NavLink className="navbar-brand"  to="/todowithcontext">Todo with Context</NavLink>
       <NavLink className="navbar-brand"  to="/componentdemo">Component Demo</NavLink>

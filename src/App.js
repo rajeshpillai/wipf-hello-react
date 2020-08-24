@@ -29,6 +29,9 @@ import Layout from './pages/layout';
 
 import ComponentDemo from './pages/component-demo';
 
+import BlogApp from './blog';
+
+
 function TodoApp() {
   const [show, toggleShow] = useState(true);
 
@@ -111,6 +114,9 @@ function TodoApp() {
               </Route>
               <Route path="/componentdemo" exact>
                 <ComponentDemo />
+              </Route>
+              <Route path="/blog" exact>
+                <BlogApp />
               </Route>
               <Route path="/" exact>
                 <Home />
