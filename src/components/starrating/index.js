@@ -27,7 +27,7 @@ export default function StarRating({count, value,
         return (
           <span className={"star"}  
             key={index}
-            style={{color: style, width:size, height:size,}}
+            style={{color: style, width:size, height:size, fontSize: size}}
             onClick={()=>handleChange(index)}>{s}</span>
         )
       })}
