@@ -1,19 +1,42 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import "./common.css";
+import {useFormValidation} from '../hooks/use-formvalidation';
 
 const API = "https://conduit.productionready.io/api/";  //users/login
 
-export default function Login({onLogin}) {
-  const [email, setEmail] = useState('tt@tt.com');  // only for temp testing
-  const [password, setPassword] = useState('12345678');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+
+
+export default function Login({onLogin}) {
+  
+  const {handleSubmit, handleChange, values, errors, isSubmitting} = useFormValidation({
+    email: "",
+    password: ""
+  }, validateForm, onSubmit);
+
+  function validateForm(values){
+    console.log("Validate method called!!")
+
+    let errors = {};
+    if (!values.email) {
+      errors.email = "Email required!";
+    }
+    if (!values.password) {
+      errors.password = "Password required!";
+    } else if (values.password.length < 6) {
+      errors.password = "Password must be at least 6 characters!";
+    }
+    return errors;
+  }
+  
+  function onSubmit(){
+    alert("onSubmit...");
     fetch(`${API}users/login`, {
       method: 'POST',
       body: JSON.stringify({
        user: {
-         email,
-         password
+         email: values.email,
+         password: values.password
        }
       }),
       headers: {
@@ -26,6 +49,7 @@ export default function Login({onLogin}) {
       onLogin(json.user);
     })
   }
+  
 
   return (
     <div className="card border-0 shadow">
@@ -36,14 +60,20 @@ export default function Login({onLogin}) {
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <input className="form-input-control" type="text" placeholder="email"
-              value={email}
-              onChange = {e => setEmail(e.target.value)}
+              value={values.email}
+              className={errors.email && "error-input"}
+              name="email"
+              onChange = {handleChange}
             />
+            {errors.email && <span className="error">{errors.email}</span>}
           </div>
           <div className="form-group">
             <input className="form-input-control" type="text" placeholder="password"
-              value={password} 
-              onChange = {e => setPassword(e.target.value)}/>
+              value={values.password} 
+              name="password"
+              className={errors.password && "error-input"}
+              onChange = {handleChange}/>
+              {errors.password && <span className="error">{errors.password}</span>}
           </div>
           <button className="btn btn-primary">
               LOGIN
