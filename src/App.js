@@ -115,7 +115,8 @@ function TodoApp() {
               <Route path="/componentdemo" exact>
                 <ComponentDemo />
               </Route>
-              <Route path="/blog" exact>
+              <Route path="/blog">
+               
                 <BlogApp />
               </Route>
               <Route path="/" exact>
