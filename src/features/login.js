@@ -5,14 +5,16 @@ import {useFormValidation} from '../hooks/use-formvalidation';
 const API = "https://conduit.productionready.io/api/";  //users/login
 
 
-
-
 export default function Login({onLogin}) {
   
   const {handleSubmit, handleChange, values, errors, isSubmitting} = useFormValidation({
     email: "",
     password: ""
   }, validateForm, onSubmit);
+
+  useEffect(() => {
+    document.title = "Login Page";
+  })
 
   function validateForm(values){
     console.log("Validate method called!!")
@@ -30,9 +32,9 @@ export default function Login({onLogin}) {
   }
   
   function onSubmit(){
-    alert("onSubmit...");
     fetch(`${API}users/login`, {
       method: 'POST',
+      mode: 'cors',
       body: JSON.stringify({
        user: {
          email: values.email,

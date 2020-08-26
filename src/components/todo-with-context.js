@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import TodoApp from './todo-context/todo-app';
 import TodoForm from './todo-context/todo-form';
 import TodoList from './todo-context/todo-list';
@@ -6,7 +6,11 @@ import TodoList from './todo-context/todo-list';
 import {TodoContext} from '../context/todoapp-context';
 import { ThemeContext } from '../context/theme-context';
 
+import {useDocumentTitle} from '../hooks/use-document-title';
+
+
 export default function TodoWithContext(props) {
+  
   const [todos, setTodos] = useState(
     [
       {id: 1, title: "todo 1"},
@@ -16,6 +20,12 @@ export default function TodoWithContext(props) {
       {id: 5, title: "todo 5"},
     ]
   )
+
+  useDocumentTitle("Todo with Context");
+
+  // useEffect(() => {
+  //   document.title = "Todo with Context";
+  // })
 
   const theme = useContext(ThemeContext);
 

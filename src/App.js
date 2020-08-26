@@ -1,10 +1,11 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  NavLink
+  NavLink,
+  useLocation
 } from "react-router-dom";
 
 import './App.css';
@@ -35,6 +36,11 @@ import BlogApp from './blog';
 function TodoApp() {
   const [show, toggleShow] = useState(true);
 
+  useEffect(() => {
+    console.log("TodoAPP: useEffect");
+    document.title = window.location.href;
+  })
+
   const onToggleShow = (e) => {
     toggleShow(show => !show)
   }
@@ -57,6 +63,7 @@ function TodoApp() {
 
     )
   }
+
 
   return (
     <div className ="container-fluid">

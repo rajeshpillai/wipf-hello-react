@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Login from './features/login'
 import Logout from './features/logout'
 import Article from './features/article';
@@ -8,9 +8,12 @@ import {
   Route,
   Link,
   NavLink,
-  useRouteMatch
+  useRouteMatch,
+  useLocation
 } from "react-router-dom";
 import Feeds from './features/feeds';
+
+import {useDocumentTitle} from './hooks/use-document-title';
 
 export default function BlogApp() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("blog:user")) || {});
@@ -19,6 +22,13 @@ export default function BlogApp() {
   // relative to the parent route, while the `url` lets
   // us build relative links.
   let { path, url } = useRouteMatch();
+
+
+  useDocumentTitle("Blog");
+
+  // useEffect(() => {
+  //   document.title = "Blog Page";
+  // })
 
   const onLogin = (user) => {
     setUser(user);
